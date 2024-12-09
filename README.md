@@ -1,4 +1,4 @@
-# 💫 About Me:
+# HI! I am Rawend Zaier :
 étudiante en L3 Mathématiques informatiques appliquées aux sciences humaines et sociales. <br>Passionnée par l'analyse de données, l'innovation et l'intelligence artificielle, j'exploite plusieurs outils afin de manipuler et générer des recherches pertinentes.<br>Je suis également fortement intéressée par le business international et son développement.
 
 
