@@ -1,5 +1,6 @@
 # HI! I am Rawend Zaier :
 étudiante en L3 Mathématiques informatiques appliquées aux sciences humaines et sociales. <br>Passionnée par l'analyse de données, l'innovation et l'intelligence artificielle, j'exploite plusieurs outils afin de manipuler et générer des recherches pertinentes.<br>Je suis également fortement intéressée par le business international et son développement.
+On est en plein conception de notre siteweb Jobonheur qui vise à diminuer le taux de chômage en offrnat une interface addaptée à tout le monde et surtout facile à utiliser pour les jeunes et qui englobe plusieurs sections comme [crétaion de ton CV/ Match avec une offre d'emploi et y postuler/ trouver un emploi qui correspond à votre style de vie/ afficher des visualisations dynamiques sur les statistiques et prédire avec le machine learning le taux de chômage]
 
 
 ## 🌐 Socials:
