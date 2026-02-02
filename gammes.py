@@ -153,32 +153,43 @@ elif slide == "Marketing & SAV":
 # =====================
 # SLIDE 4 — MATRICE STRATÉGIQUE
 # =====================
+# =====================
+# SLIDE 4 — MATRICE STRATÉGIQUE (IDENTIQUE MATPLOTLIB)
+# =====================
 else:
     st.title("Matrice stratégique : CA vs Marge")
 
-    fig = px.scatter(
-        df_agg,
-        x="CA_Annuel",
-        y="Marge_Annuelle",
-        color="Gamme",
-        size="Budget_Marketing",
-        hover_data=["ROI", "Taux_SAV"],
-        labels={
-            "CA_Annuel": "Chiffre d'affaires annuel (€)",
-            "Marge_Annuelle": "Marge annuelle (€)"
-        }
+    fig, ax = plt.subplots(figsize=(9,6))
+
+    sc = ax.scatter(
+        df_agg['CA_Annuel'],
+        df_agg['Marge_Annuelle'],
+        c=df_agg['ROI'],                       # ✅ couleur = ROI
+        s=df_agg['Budget_Marketing'] / 300,   # ✅ taille = budget
+        alpha=0.75,
+        cmap='viridis'
     )
 
-    fig.add_hline(y=0, line_dash="dash")
-    fig.add_vline(x=df_agg["CA_Annuel"].mean(), line_dash="dash")
+    # Seuils
+    ax.axhline(0, linestyle='--')
+    ax.axvline(df_agg['CA_Annuel'].mean(), linestyle='--')
 
-    st.plotly_chart(fig, use_container_width=True)
+    # Colorbar
+    plt.colorbar(sc, ax=ax, label="ROI marketing")
 
-    st.markdown("""
-**Lecture :**
-- Au-dessus de 0 → création de valeur  
-- Taille → effort marketing  
-- ROI élevé → efficacité  
-👉 La Gamme C est la plus performante  
-👉 La Gamme B détruit de la valeur
-""")
+    # Annotations
+    for _, r in df_agg.iterrows():
+        ax.annotate(
+            r['Gamme'],
+            (r['CA_Annuel'], r['Marge_Annuelle']),
+            textcoords="offset points",
+            xytext=(8, 6),
+            ha='left'
+        )
+
+    ax.set_title("Matrice stratégique : CA vs Marge (couleur = ROI)")
+    ax.set_xlabel("Chiffre d'affaires annuel (€)")
+    ax.set_ylabel("Marge annuelle (€)")
+
+    plt.tight_layout()
+    st.pyplot(fig)
