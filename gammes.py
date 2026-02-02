@@ -149,12 +149,6 @@ elif slide == "Marketing & SAV":
         ax2.set_title("Taux de retour SAV")
         ax2.set_ylabel("Taux")
         st.pyplot(fig2)
-plt.figure(figsize=(10,6))
-sns.scatterplot(data=df, x='Budget_Marketing', y='CA_Mensuel', hue='Gamme', size='Cout_Production', sizes=(50,300), palette='tab10')
-plt.title("CA Mensuel vs Budget Marketing et Coût de Production")
-plt.xlabel("Budget Marketing (€)")
-plt.ylabel("CA Mensuel (€)")
-plt.show()
 
 # =====================
 # SLIDE 4 — MATRICE STRATÉGIQUE
