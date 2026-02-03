@@ -98,6 +98,21 @@ if slide == "Décisions":
 # =====================
 # SLIDE 2 — ÉVOLUTION CA
 # =====================
+from scipy.stats import norm
+plt.figure(figsize=(10,6))
+# Histogramme
+sns.histplot(df['CA_Mensuel'], bins=5, stat='density')
+# Ajustement loi normale
+mu, std = norm.fit(df['CA_Mensuel'])
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = norm.pdf(x, mu, std)
+plt.plot(x, p)
+plt.title("Ajustement à une loi normale du CA Mensuel")
+plt.xlabel("CA Mensuel")
+plt.ylabel("Densité")
+plt.show()
+#
 elif slide == "Analyse temporelle":
     st.title("Évolution du chiffre d’affaires")
 
